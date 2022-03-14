@@ -21,25 +21,29 @@ public class GuessNumber {
         for (int i = 0; i < 4; i++) {
             String string = scanner.next();
             double input = Double.parseDouble(string);
+            if (i == 0 || i == 1 || i == 2) {
 
-            if (input != number && (input < 1 || input > 100)) {
-                System.out.println("Not in range!");
+                if (input != number && (input < 1 || input > 100)) {
+                    System.out.println("Not in range!");
 
-            } else if (input != number && (1 <= input && input <= 100)) {
+                } else if (input != number && (1 <= input && input <= 100)) {
 
 
-                if (input < number) {
-                    double tmp = min;
-                    min = input;
-                    System.out.println("You're wrong! Please try again. (" + min + " ~ " + max + ")");
-                } else if (input > number) {
-                    double tmp = max;
-                    max = input;
+                    if (input < number) {
+                        double tmp = min;
+                        min = input;
+                        System.out.println("You're wrong! Please try again. (" + min + " ~ " + max + ")");
+                    } else if (input > number) {
+                        double tmp = max;
+                        max = input;
 
-                    System.out.println("You're wrong! Please try again. (" + min + " ~ " + max + ")");
+                        System.out.println("You're wrong! Please try again. (" + min + " ~ " + max + ")");
+                    }
+                } else {
+                    test = true;
+                    break;
                 }
-            } else {
-                test = true;
+            }else {
                 break;
             }
 
